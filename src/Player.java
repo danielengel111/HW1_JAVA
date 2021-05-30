@@ -1,16 +1,14 @@
-import java.util.ArrayList;
-
 public class Player
 {
-    private Deck game_deck;
-    private Deck winning_deck;
+    private Deck gameDeck;
+    private Deck winningDeck;
     private String name;
 
     public Player(String name)
     {
         this.name = name;
-        game_deck = new Deck(false);
-        winning_deck = new Deck(false);
+        gameDeck = new Deck(false);
+        winningDeck = new Deck(false);
     }
 
     void drawCard(){}
