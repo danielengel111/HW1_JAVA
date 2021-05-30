@@ -10,11 +10,12 @@ public class Deck
         this.deck = null;
         if (condition)
         {
+            this.deck = new Stack<>();
             for (Shape shape: Shape.values())
             {
                 for (int i = 1; i <= 13; i++)
                 {
-                    deck.push(new Card(i, shape));
+                    this.deck.push(new Card(i, shape));
                 }
             }
         }
