@@ -26,5 +26,7 @@ public class Main {
             System.out.println("+++++++++++++++++++++++++++++++++++++++");
             System.out.println(winner + " won the game!\n\n");
         }
+        //Card card = new Card(1, Shape.Spades);
+        //System.out.println(card);
     }
 }
