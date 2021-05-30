@@ -16,10 +16,30 @@ public class WarGame {
         this.player2DrawnDeck = new Deck(false);
     }
 
-
+    /**
+     * initializes the game by shuffling a deck of cards
+     * and dealing the cards to the players
+     */
     void initializeGame() {
         System.out.println("Initializing the game...");
-
+        Deck startingDeck = new Deck(true);
+        startingDeck.shuffle(); //initialize the deck
+        boolean isPlayer1Turn =
+                //comparing lexicographically
+                player1.getName().compareTo(player2.getName) < 0;
+        while(!startingDeck.isEmpty()){
+            if(isPlayer1Turn){
+                player1.getGameDeck.addCard(startingDeck.removeTopCard());
+                //add to first player's deck
+                isPlayer1Turn = false;
+                //next turn is the second player's
+            }else{
+                player2.getGameDeck.addCard(startingDeck.removeTopCard());
+                //add to second player's deck
+                isPlayer1Turn = true;
+                //next turn is the first player's
+            }
+        }
     }
 
     String start(){}
