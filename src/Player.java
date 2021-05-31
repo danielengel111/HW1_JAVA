@@ -11,9 +11,9 @@ public class Player
         winningDeck = new Deck(false);
     }
 
-    void drawCard(){}
+    public void drawCard(){}
 
-    boolean outOfCards(){}
+    public boolean outOfCards(){}
 
     @Override
     public String toString()

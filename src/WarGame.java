@@ -20,7 +20,7 @@ public class WarGame {
      * initializes the game by shuffling a deck of cards
      * and dealing the cards to the players
      */
-    void initializeGame() {
+    public void initializeGame() {
         System.out.println("Initializing the game...");
         Deck startingDeck = new Deck(true);
         startingDeck.shuffle(); //initialize the deck
@@ -47,7 +47,7 @@ public class WarGame {
      * manages the game and printing
      * @return - the name of the winner
      */
-    String start(){
+    public String start(){
         this.initializeGame();
         boolean isPlayer1Turn =
                 //comparing lexicographically

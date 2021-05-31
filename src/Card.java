@@ -19,7 +19,7 @@ public class Card
         return this.shape;
     }
 
-    int compare(Card other)
+    public int compare(Card other)
     {
         if (other.value > this.value)
             return -1;

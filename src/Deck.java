@@ -21,28 +21,23 @@ public class Deck
         }
     }
 
-    void addCard(Card card)
-    {
-        this.deck.push(card);
-    }
+    public void addCard(Card card) {this.deck.push(card);}
 
-    Card removeTopCard()
-    {
-        return this.deck.pop();
-    }
+    public Card removeTopCard() { return this.deck.pop();}
 
-    boolean isEmpty()
+    public boolean isEmpty()
     {
         return this.deck.isEmpty();
     }
 
-    void shuffle()
+    public void shuffle()
     {
         for (int i = 0; i < 50; i++)
         {
             int index1 = Main.rnd.nextInt(52);
             int index2 = -1;
-            while (index1 != index2) //get random index until we found one different from index1
+            while (index1 != index2)
+                //get random index until we found one different from index1
             {
                 index2 = Main.rnd.nextInt(52);
             }
