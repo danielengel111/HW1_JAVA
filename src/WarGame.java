@@ -26,15 +26,15 @@ public class WarGame {
         startingDeck.shuffle(); //initialize the deck
         boolean isPlayer1Turn =
                 //comparing lexicographically
-                player1.getName().compareTo(player2.getName) < 0;
+                player1.getName().compareTo(player2.getName()) < 0;
         while(!startingDeck.isEmpty()){
             if(isPlayer1Turn){
-                player1.getGameDeck.addCard(startingDeck.removeTopCard());
+                player1.getGameDeck().addCard(startingDeck.removeTopCard());
                 //add to first player's deck
                 isPlayer1Turn = false;
                 //next turn is the second player's
             }else{
-                player2.getGameDeck.addCard(startingDeck.removeTopCard());
+                player2.getGameDeck().addCard(startingDeck.removeTopCard());
                 //add to second player's deck
                 isPlayer1Turn = true;
                 //next turn is the first player's
@@ -52,13 +52,17 @@ public class WarGame {
         Deck centralDeck = new Deck(false);
         boolean doesPlayer1start =
                 //comparing lexicographically
-                player1.getName().compareTo(player2.getName) < 0;
+                player1.getName().compareTo(player2.getName()) < 0;
         Card player1DrawnCard;
         Card player2DrawnCard;
-        while(True){
-            if(doesPlayer1start){
+        while(true)
+        {
+            if(doesPlayer1start)
+            {
 
-            }else{//player2 is first lexicographically
+            }
+            else
+            {//player2 is first lexicographically
 
             }
         }

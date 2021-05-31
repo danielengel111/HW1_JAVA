@@ -11,7 +11,16 @@ public class Player
         winningDeck = new Deck(false);
     }
 
-    public void drawCard(){}
+    public Deck getGameDeck()
+    {
+        return this.gameDeck;
+    }
+    public String getName()
+    {
+        return this.name;
+    }
+
+    public void drawCard() {}
 
     public boolean outOfCards(){}
 
