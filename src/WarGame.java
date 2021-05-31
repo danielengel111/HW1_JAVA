@@ -1,8 +1,8 @@
 public class WarGame {
     private Player player1;
-    private Deck player1DrawnDeck;
+    private Deck player1tmpDeck;
     private Player player2;
-    private Deck player2DrawnDeck;
+    private Deck player2TmpDeck;
 
     /**
      * constructor of WarGame
@@ -11,9 +11,9 @@ public class WarGame {
      */
     public WarGame(String player1_name, String player2_name) {
         this.player1 = new Player(player1_name);
-        this.player1DrawnDeck = new Deck(false);
+        this.player1tmpDeck = new Deck(false);
         this.player2 = new Player(player2_name);
-        this.player2DrawnDeck = new Deck(false);
+        this.player2TmpDeck = new Deck(false);
     }
 
     /**
@@ -49,9 +49,28 @@ public class WarGame {
      */
     public String start(){
         this.initializeGame();
-        boolean isPlayer1Turn =
+        Deck centralDeck = new Deck(false);
+        boolean doesPlayer1start =
                 //comparing lexicographically
                 player1.getName().compareTo(player2.getName) < 0;
+        Card player1DrawnCard;
+        Card player2DrawnCard;
+        while(True){
+            if(doesPlayer1start){
+
+            }else{//player2 is first lexicographically
+
+            }
+        }
+    }
+
+    /**
+     * this function loops the game
+     * @param first - the first player lexicographically
+     * @param second - the second player lexicographically
+     * @return - the name of the winner
+     */
+    private String gameLooper(Player first, Player second){
 
     }
 
@@ -68,16 +87,16 @@ public class WarGame {
     public Player getPlayer2(){return player2;}
 
     /**
-     * getter function of the player1DrawnDeck attribute
-     * @return - player1DrawnDeck attribute
+     * getter function of the player1tmpDeck attribute
+     * @return - player1tmpDeck attribute
      */
-    public Deck getPlayer1DrawnDeck(){return player1DrawnDeck;}
+    public Deck getPlayer1tmpDeck(){return player1tmpDeck;}
 
     /**
-     * getter function of the player2DrawnDeck attribute
-     * @return - player2DrawnDeck attribute
+     * getter function of the player2TmpDeck attribute
+     * @return - player2TmpDeck attribute
      */
-    public Deck getPlayer2DrawnDeck(){return player2DrawnDeck;}
+    public Deck getPlayer2TmpDeck(){return player2TmpDeck;}
 
     /**
      * setter function of the player1
@@ -96,18 +115,18 @@ public class WarGame {
     }
 
     /**
-     * setter function of the player1DrawnDeck
-     * @param deck - deck to set to player1DrawnDeck
+     * setter function of the player1tmpDeck
+     * @param deck - deck to set to player1tmpDeck
      */
-    public void setPlayer1DrawnDeck(Deck deck){
-        this.player1DrawnDeck = deck;
+    public void setPlayer1tmpDeck(Deck deck){
+        this.player1tmpDeck = deck;
     }
 
     /**
-     * setter function of the player2DrawnDeck
-     * @param deck - deck to set to player2DrawnDeck
+     * setter function of the player2TmpDeck
+     * @param deck - deck to set to player2TmpDeck
      */
-    public void setPlayer2DrawnDeck(Deck deck){
-        this.player2DrawnDeck = deck;
+    public void setPlayer2TmpDeck(Deck deck){
+        this.player2TmpDeck = deck;
     }
 }
