@@ -22,7 +22,10 @@ public class Player
 
     public void drawCard() {}
 
-    public boolean outOfCards(){}
+    public boolean outOfCards()
+    {
+        return gameDeck.isEmpty() && winningDeck.isEmpty();
+    }
 
     @Override
     public String toString()

@@ -27,13 +27,17 @@ public class WarGame {
         boolean isPlayer1Turn =
                 //comparing lexicographically
                 player1.getName().compareTo(player2.getName()) < 0;
-        while(!startingDeck.isEmpty()){
-            if(isPlayer1Turn){
+        while(!startingDeck.isEmpty())
+        {
+            if(isPlayer1Turn)
+            {
                 player1.getGameDeck().addCard(startingDeck.removeTopCard());
                 //add to first player's deck
                 isPlayer1Turn = false;
                 //next turn is the second player's
-            }else{
+            }
+            else
+            {
                 player2.getGameDeck().addCard(startingDeck.removeTopCard());
                 //add to second player's deck
                 isPlayer1Turn = true;

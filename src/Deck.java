@@ -43,12 +43,14 @@ public class Deck
             }
 
             //swap cards
-            Card temp;
             Card card1 = this.deck.elementAt(index1);
             Card card2 = this.deck.elementAt(index2);
-            temp = card1;
-            card1 = card2;
-            card2 = temp;
+            this.deck.setElementAt(card1, index2);
+            this.deck.setElementAt(card2, index1);
         }
+    }
+    public Stack<Card> getDeck()
+    {
+        return this.deck;
     }
 }
