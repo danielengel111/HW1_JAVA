@@ -42,7 +42,18 @@ public class WarGame {
         }
     }
 
-    String start(){}
+    /**
+     * calls initializeGame
+     * manages the game and printing
+     * @return - the name of the winner
+     */
+    String start(){
+        this.initializeGame();
+        boolean isPlayer1Turn =
+                //comparing lexicographically
+                player1.getName().compareTo(player2.getName) < 0;
+
+    }
 
     /**
      * getter function of the player1 attribute

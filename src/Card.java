@@ -1,7 +1,7 @@
 public class Card
 {
-    private int value;
-    private Shape shape;
+    private final int value;
+    private final Shape shape;
 
     public Card(int value, Shape shape)
     {
