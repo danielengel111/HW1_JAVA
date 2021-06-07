@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 public class Main {
     public static Random rnd;
-    public static final int NUM_OF_CARDS = 52;
 
     public static void main(String[] args) throws FileNotFoundException {
         String filePath = args[0];

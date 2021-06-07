@@ -5,10 +5,14 @@ public class Deck
 {
     private Stack<Card> deck;
 
-    public Deck(boolean condition)
+    /**
+     * constructor method
+     * @param isFull - should the deck be full of cards or empty
+     */
+    public Deck(boolean isFull)
     {
         this.deck = null;
-        if (condition)
+        if (isFull)
         {
             this.deck = new Stack<>();
             for (Shape shape: Shape.values())
