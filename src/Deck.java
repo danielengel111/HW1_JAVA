@@ -25,10 +25,22 @@ public class Deck
         }
     }
 
+    /**
+     * adds a card to the deck
+     * @param card - card to add
+     */
     public void addCard(Card card) {this.deck.push(card);}
 
+    /**
+     * pops the head of the deck
+     * @return card from the top
+     */
     public Card removeTopCard() { return this.deck.pop();}
 
+    /**
+     * checks if the deck is out of cards
+     * @return true if it is
+     */
     public boolean isEmpty()
     {
         return this.deck.isEmpty();
@@ -51,8 +63,20 @@ public class Deck
             this.deck.setElementAt(card2, index1);
         }
     }
+
+    /**
+     * getter for the deck
+     * @return the the deck
+     */
     public Stack<Card> getDeck()
     {
         return this.deck;
+    }
+
+    /**
+     * setter for the deck
+     */
+    public void setDeck(Stack<Card> deck){
+        this.deck = deck;
     }
 }

@@ -10,9 +10,14 @@ public class WarGame {
      * @param player2_name - second player
      */
     public WarGame(String player1_name, String player2_name) {
-        this.player1 = new Player(player1_name);
+        if(player1_name.compareTo(player2_name) < 0){
+            this.player1 = new Player(player1_name);
+            this.player2 = new Player(player2_name);
+        }else { //here we change them lexicographically
+            this.player1 = new Player(player2_name);
+            this.player2 = new Player(player1_name);
+        }
         this.player1tmpDeck = new Deck(false);
-        this.player2 = new Player(player2_name);
         this.player2TmpDeck = new Deck(false);
     }
 
@@ -24,25 +29,10 @@ public class WarGame {
         System.out.println("Initializing the game...");
         Deck startingDeck = new Deck(true);
         startingDeck.shuffle(); //initialize the deck
-        boolean isPlayer1Turn =
-                //comparing lexicographically
-                player1.getName().compareTo(player2.getName()) < 0;
         while(!startingDeck.isEmpty())
         {
-            if(isPlayer1Turn)
-            {
-                player1.getGameDeck().addCard(startingDeck.removeTopCard());
-                //add to first player's deck
-                isPlayer1Turn = false;
-                //next turn is the second player's
-            }
-            else
-            {
-                player2.getGameDeck().addCard(startingDeck.removeTopCard());
-                //add to second player's deck
-                isPlayer1Turn = true;
-                //next turn is the first player's
-            }
+            player1.addToGameDeck(startingDeck.removeTopCard());
+            player2.addToGameDeck(startingDeck.removeTopCard());
         }
     }
 
@@ -53,34 +43,29 @@ public class WarGame {
      */
     public String start(){
         this.initializeGame();
-        Deck centralDeck = new Deck(false);
-        boolean doesPlayer1start =
-                //comparing lexicographically
-                player1.getName().compareTo(player2.getName()) < 0;
-        Card player1DrawnCard;
-        Card player2DrawnCard;
-        while(true)
-        {
-            if(doesPlayer1start)
-            {
-
+        String winner;//name of the winner
+        Card firstDrawn;//the currently drawn card by the first player
+        Card secondDrawn;// the currently drawn card by the second player
+        while(true){
+            if(player1.outOfCards()){
+                winner = player2.getName();
+                break;//we have a winner!
             }
-            else
-            {//player2 is first lexicographically
+            firstDrawn = player1.drawCard();//first player draws the card
+            System.out.println(player1 + " drew " + firstDrawn);
 
+            if(player2.outOfCards()){
+                winner = player1.getName();
+                break;//we have a winner!
             }
+            secondDrawn = player2.drawCard();//second player draws the card
+            System.out.println(player2 + " drew " + secondDrawn);
+
+
         }
+        return winner;
     }
 
-    /**
-     * this function loops the game
-     * @param first - the first player lexicographically
-     * @param second - the second player lexicographically
-     * @return - the name of the winner
-     */
-    private String gameLooper(Player first, Player second){
-
-    }
 
     /**
      * getter function of the player1 attribute

@@ -9,16 +9,33 @@ public class Card
         this.shape = shape;
     }
 
+    /**
+     * getter for value
+     * @return the value of the card
+     */
     public int getValue()
     {
         return this.value;
     }
 
+    /**
+     * getter for shape
+     * @return the shape of the card
+     */
     public Shape getShape()
     {
         return this.shape;
     }
 
+    //no setters because attributes are final
+
+    /**
+     * compares this card to another card
+     * @param other: the other card for the comparison
+     * @return: -1 if the other card's value is higher
+     * 0 if equals
+     * 1 if this card's value is higher
+     */
     public int compare(Card other)
     {
         if (other.value > this.value)
@@ -32,6 +49,9 @@ public class Card
     }
 
     @Override
+    /**
+     * returns a string that describes the card's attributes
+     */
     public String toString()
     {
         String str1 = "";
