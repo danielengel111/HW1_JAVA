@@ -30,17 +30,15 @@ public class Deck
         return this.deck.isEmpty();
     }
 
+    /**
+     * this function shuffles the deck
+     */
     public void shuffle()
     {
         for (int i = 0; i < 50; i++)
         {
             int index1 = Main.rnd.nextInt(52);
-            int index2 = -1;
-            while (index1 != index2)
-                //get random index until we found one different from index1
-            {
-                index2 = Main.rnd.nextInt(52);
-            }
+            int index2 = Main.rnd.nextInt(52);// get random indexes
 
             //swap cards
             Card card1 = this.deck.elementAt(index1);
