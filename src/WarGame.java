@@ -84,8 +84,8 @@ public class WarGame {
      */
     private void giveCardsToWinner(Player player){
         while(!player1TmpDeck.isEmpty()){
-            player.addToWinningDeck(player1TmpDeck.removeTopCard());
             player.addToWinningDeck(player2TmpDeck.removeTopCard());
+            player.addToWinningDeck(player1TmpDeck.removeTopCard());
         }
     }
 
