@@ -86,7 +86,7 @@ public class WarGame {
         while(!player1TmpDeck.isEmpty()){
             player.addToWinningDeck(player2TmpDeck.removeTopCard());
             player.addToWinningDeck(player1TmpDeck.removeTopCard());
-        }
+       }
     }
 
     /**
