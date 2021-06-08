@@ -66,7 +66,7 @@ public class Card
             str1 = "Ace of ";
 
         else if (this.value == 11)
-            str1 = "Prince of ";
+            str1 = "jack of ";
 
         else if (this.value == 12)
             str1 = "Queen of ";

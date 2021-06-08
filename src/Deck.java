@@ -11,10 +11,9 @@ public class Deck
      */
     public Deck(boolean isFull)
     {
-        this.deck = null;
+        this.deck = new Stack<>();
         if (isFull)
         {
-            this.deck = new Stack<>();
             for (Shape shape: Shape.values())
             {
                 for (int i = 1; i <= 13; i++)
@@ -55,7 +54,6 @@ public class Deck
         {
             int index1 = Main.rnd.nextInt(deck.size());
             int index2 = Main.rnd.nextInt(deck.size());// get random indexes
-
             //swap cards
             Card card1 = this.deck.elementAt(index1);
             Card card2 = this.deck.elementAt(index2);
