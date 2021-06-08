@@ -99,9 +99,9 @@ public class Player
      */
     public void changer(){
         winningDeck.shuffle();//first shuffle it
-        while(!winningDeck.isEmpty()){
-            gameDeck.addCard(winningDeck.removeTopCard());
-        }
+        Deck temp = winningDeck;
+        winningDeck = gameDeck;
+        gameDeck = temp;
     }
 
     @Override
