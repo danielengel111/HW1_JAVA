@@ -3,6 +3,11 @@ public class Card
     private final int value;
     private final Shape shape;
 
+    /**
+     * constructor of Card
+     * @param value - value of the card
+     * @param shape - shape of the card
+     */
     public Card(int value, Shape shape)
     {
         this.value = value;

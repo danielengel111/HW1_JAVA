@@ -1,6 +1,6 @@
 public class WarGame {
     private Player player1;
-    private Deck player1tmpDeck;
+    private Deck player1TmpDeck;
     private Player player2;
     private Deck player2TmpDeck;
 
@@ -17,7 +17,7 @@ public class WarGame {
             this.player1 = new Player(player2_name);
             this.player2 = new Player(player1_name);
         }
-        this.player1tmpDeck = new Deck(false);
+        this.player1TmpDeck = new Deck(false);
         this.player2TmpDeck = new Deck(false);
     }
 
@@ -46,27 +46,76 @@ public class WarGame {
         String winner;//name of the winner
         Card firstDrawn;//the currently drawn card by the first player
         Card secondDrawn;// the currently drawn card by the second player
-        while(true){
-            if(player1.outOfCards()){
-                winner = player2.getName();
-                break;//we have a winner!
-            }
+        for(int i = 1; true; i++){
+            System.out.println("------------------------- Round number "+i
+                    + " -------------------------");
             firstDrawn = player1.drawCard();//first player draws the card
+            player1TmpDeck.addCard(firstDrawn);
             System.out.println(player1 + " drew " + firstDrawn);
 
-            if(player2.outOfCards()){
-                winner = player1.getName();
-                break;//we have a winner!
-            }
             secondDrawn = player2.drawCard();//second player draws the card
+            player2TmpDeck.addCard(secondDrawn);
             System.out.println(player2 + " drew " + secondDrawn);
 
+            switch(firstDrawn.compare(secondDrawn)){
+                case(-1): // player 2 won the round
+                    giveCardsToWinner(player2);
+                    System.out.println(player2+" won");
+                    break;
+                case(1): // player 1 won the round
+                    giveCardsToWinner(player1);
+                    System.out.println(player1+" won");
+                    break;
+                case(0):
+
+
+            }
 
         }
         return winner;
     }
 
+    /**
+     * this function is called when a player wins a round or a war
+     * gives him the cards in the middle deck
+     * @param player - the player who won
+     */
+    private void giveCardsToWinner(Player player){
+        while(!player1TmpDeck.isEmpty()){
+            player.addToWinningDeck(player1TmpDeck.removeTopCard());
+            player.addToWinningDeck(player2TmpDeck.removeTopCard());
+        }
+    }
 
+    /**
+     * handles war
+     * @return
+     */
+    private String handleWar(){
+        String winner = hasSomeoneLost();
+        if(!winner.equals(""))
+            return winner;
+        //both have cards left, start the war
+        System.out.println("Starting a war...");
+        while(true){
+            for(int i=0 ;i < 2 ;i++){
+
+            }
+        }
+    }
+
+    /**
+     * checks if a player has lost
+     * @return no loser then returns ""
+     *          otherwise returns the name of the winner
+     */
+    private String hasSomeoneLost(){
+        if(player1.outOfCards())
+            return player2.getName();
+        else if(player2.outOfCards())
+            return player1.getName();
+        return "";
+    }
     /**
      * getter function of the player1 attribute
      * @return - player1 attribute
@@ -80,10 +129,10 @@ public class WarGame {
     public Player getPlayer2(){return player2;}
 
     /**
-     * getter function of the player1tmpDeck attribute
+     * getter function of the player1TmpDeck attribute
      * @return - player1tmpDeck attribute
      */
-    public Deck getPlayer1tmpDeck(){return player1tmpDeck;}
+    public Deck getPlayer1TmpDeck(){return player1TmpDeck;}
 
     /**
      * getter function of the player2TmpDeck attribute
@@ -108,11 +157,11 @@ public class WarGame {
     }
 
     /**
-     * setter function of the player1tmpDeck
+     * setter function of the player1TmpDeck
      * @param deck - deck to set to player1tmpDeck
      */
-    public void setPlayer1tmpDeck(Deck deck){
-        this.player1tmpDeck = deck;
+    public void setPlayer1TmpDeck(Deck deck){
+        this.player1TmpDeck = deck;
     }
 
     /**

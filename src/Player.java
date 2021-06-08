@@ -69,6 +69,14 @@ public class Player
     }
 
     /**
+     * adds card to winning deck
+     * @param card
+     */
+    public void addToWinningDeck(Card card){
+        winningDeck.addCard(card);
+    }
+
+    /**
      * draws a card from game deck
      */
     public Card drawCard() {return gameDeck.removeTopCard();}
@@ -86,6 +94,9 @@ public class Player
         return gameDeck.isEmpty() && winningDeck.isEmpty();
     }
 
+    /**
+     * shuffles the winning deck and then changes the playing deck
+     */
     public void changer(){
         winningDeck.shuffle();//first shuffle it
         while(!winningDeck.isEmpty()){
