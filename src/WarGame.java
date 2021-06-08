@@ -66,11 +66,13 @@ public class WarGame {
                     giveCardsToWinner(player1);
                     System.out.println(player1+" won");
                     break;
-                case(0):
-
-
+                case(0):// war is starting
+                    handleWar();
+                    break;
             }
-
+            winner = hasSomeoneLost();
+            if(!winner.equals(""))
+                break;
         }
         return winner;
     }
@@ -89,18 +91,45 @@ public class WarGame {
 
     /**
      * handles war
-     * @return
      */
-    private String handleWar(){
-        String winner = hasSomeoneLost();
-        if(!winner.equals(""))
-            return winner;
+    private void handleWar(){
+        Card firstDrawn;//the currently drawn card by the first player
+        Card secondDrawn;// the currently drawn card by the second player
+        if(!hasSomeoneLost().equals(""))
+            return;
         //both have cards left, start the war
         System.out.println("Starting a war...");
-        while(true){
-            for(int i=0 ;i < 2 ;i++){
+        for(int i=0 ;i < 2 ;i++){//first two card draws
+           player1TmpDeck.addCard(player1.drawCard());
+           System.out.println(player1+" drew a war card");
 
-            }
+           player2TmpDeck.addCard(player2.drawCard());
+           System.out.println(player2+" drew a war card");
+            if(!hasSomeoneLost().equals(""))
+                return; //someone has lost, stop the war
+        }
+
+        firstDrawn = player1.drawCard();//first player draws the card
+        player1TmpDeck.addCard(firstDrawn);
+        System.out.println(player1 + " drew " + firstDrawn);
+
+        secondDrawn = player2.drawCard();//second player draws the card
+        player2TmpDeck.addCard(secondDrawn);
+        System.out.println(player2 + " drew " + secondDrawn);
+
+        switch(firstDrawn.compare(secondDrawn)) {
+            case (-1): // player 2 won the war
+                giveCardsToWinner(player2);
+                System.out.println(player2 + " won the war");
+                break;
+            case (1): // player 1 won the round
+                giveCardsToWinner(player1);
+                System.out.println(player1 + " won the war");
+                break;
+            case(0)://we need to start another war
+                if(!hasSomeoneLost().equals(""))
+                    return;
+                handleWar();//start another war
         }
     }
 
@@ -111,9 +140,9 @@ public class WarGame {
      */
     private String hasSomeoneLost(){
         if(player1.outOfCards())
-            return player2.getName();
+            return player2.getName();//player2 has won
         else if(player2.outOfCards())
-            return player1.getName();
+            return player1.getName();//player1 has won
         return "";
     }
     /**

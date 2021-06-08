@@ -53,8 +53,8 @@ public class Deck
     {
         for (int i = 0; i < 50; i++)
         {
-            int index1 = Main.rnd.nextInt(52);
-            int index2 = Main.rnd.nextInt(52);// get random indexes
+            int index1 = Main.rnd.nextInt(deck.size());
+            int index2 = Main.rnd.nextInt(deck.size());// get random indexes
 
             //swap cards
             Card card1 = this.deck.elementAt(index1);
