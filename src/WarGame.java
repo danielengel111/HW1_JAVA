@@ -71,7 +71,7 @@ public class WarGame {
                     break;
             }
             winner = hasSomeoneLost();
-            if(!winner.equals(""))
+            if(!winner.equals(""))//we have a winner
                 break;
         }
         return winner;

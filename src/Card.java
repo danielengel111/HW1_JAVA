@@ -80,7 +80,7 @@ public class Card
         switch (this.shape)
         {
             case Clubs:
-                str2 = "♣";
+                str2 = "♠";
                 break;
 
             case Hearts:
@@ -92,7 +92,7 @@ public class Card
                 break;
 
             case Spades:
-                str2 = "♠";
+                str2 = "♣";
                 break;
         }
         return str1 + str2;
